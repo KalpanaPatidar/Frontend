@@ -126,7 +126,7 @@ export function HeroSection() {
                                   />+
                   </span>
                 </div>
-                <p className="text-white/80 text-sm">Active Students</p>
+                <p className="text-hero-gradient/80 text-sm">Active Students</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
@@ -142,7 +142,7 @@ export function HeroSection() {
                     />%
                   </span>
                 </div>
-                <p className="text-white/80 text-sm">Match Accuracy</p>
+                <p className="text-hero-gradient/80 text-sm">Match Accuracy</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
@@ -158,7 +158,7 @@ export function HeroSection() {
                     />+
                   </span>
                 </div>
-                <p className="text-white/80 text-sm">Partner Companies</p>
+                <p className="text-hero-gradient/80 text-sm">Partner Companies</p>
               </div>
             </motion.div>
           </motion.div>
