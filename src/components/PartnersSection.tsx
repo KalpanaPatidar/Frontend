@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Users, Building2 } from "lucide-react";
 import { motion } from "framer-motion";
-
+import CountUp from './CountUp.tsx'
 export function PartnersSection() {
   return (
     <section id="partners" className="py-20 bg-background">
@@ -68,15 +68,42 @@ export function PartnersSection() {
           className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12"
         >
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">2000+</div>
+            <div className="text-3xl font-bold text-primary mb-2">
+              <CountUp
+                from={0}
+                to={2000}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />
+            </div>
             <p className="text-muted-foreground">Partner Companies</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">50+</div>
+            <div className="text-3xl font-bold text-primary mb-2">
+              <CountUp
+                from={0}
+                to={50}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />+
+            </div>
             <p className="text-muted-foreground">Industry Domains</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">95%</div>
+            <div className="text-3xl font-bold text-primary mb-2">
+              <CountUp
+                from={0}
+                to={95}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />%
+            </div>
             <p className="text-muted-foreground">Success Rate</p>
           </div>
         </motion.div>
