@@ -99,7 +99,7 @@ export function HeroSection() {
               <Button
                 variant="ghost"
                 size="lg"
-                className="text-white border-white/30 hover:bg-white/10 transition-smooth font-semibold text-lg px-8 py-6 rounded-xl"
+                className="text-white border-white/30 hover:bg-white/40 transition-smooth font-semibold text-lg px-8 py-6 rounded-xl"
               >
                 Watch Demo
               </Button>
