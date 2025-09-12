@@ -31,7 +31,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="sm"
       onClick={toggleTheme}
-      className="transition-smooth hover:bg-accent/20"
+      className="transition-smooth hover:bg-accent/60"
     >
       {theme === "light" ? (
         <Moon className="h-4 w-4" />
