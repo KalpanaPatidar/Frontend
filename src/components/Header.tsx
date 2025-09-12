@@ -76,7 +76,7 @@ export function Header() {
 
             {/* Auth Buttons - Hidden on small screens */}
             <div className="hidden sm:flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="transition-smooth">
+              <Button variant="ghost" size="sm" className="transition-smooth hover:bg-accent/60">
                 Login
               </Button>
               <Button size="sm" className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft">
