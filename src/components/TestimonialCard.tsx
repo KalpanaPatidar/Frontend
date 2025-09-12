@@ -24,7 +24,7 @@ export function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       <Card className="h-full bg-gradient-card shadow-card hover:shadow-glow transition-all duration-300 border border-border/60 group">
         <CardContent className="p-6">
           <div className="flex items-start justify-between mb-4">
-            <Quote className="w-8 h-8 text-primary/20 flex-shrink-0" />
+            <Quote className="w-8 h-8 text-hero-gradient flex-shrink-0" />
             <div className="flex items-center space-x-1 ml-4">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
@@ -45,7 +45,7 @@ export function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
 
           <div className="flex items-center space-x-3">
             <Avatar className="w-12 h-12 bg-hero-gradient">
-              <AvatarFallback className="text-white font-semibold">
+              <AvatarFallback className="text-hero-gradient font-semibold">
                 {testimonial.name.split(' ').map(n => n[0]).join('')}
               </AvatarFallback>
             </Avatar>
