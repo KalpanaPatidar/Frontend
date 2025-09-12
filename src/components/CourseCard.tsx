@@ -49,7 +49,7 @@ export function CourseCard({ course, index }: CourseCardProps) {
             </Badge>
           </div>
           
-          <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-smooth line-clamp-2 mb-2">
+          <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-smooth line-clamp-2 mb-2 w-[90%]">
             {course.title}
           </h3>
           
