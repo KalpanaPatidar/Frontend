@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, Users } from "lucide-react";
 import DarkVeil from './ui/DarkVeil';
-
+import CountUp from './CountUp.tsx'
 export function HeroSection() {
   return (
     <>
@@ -115,21 +115,48 @@ export function HeroSection() {
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
                   <Users className="w-5 h-5 text-yellow-300 mr-2" />
-                  <span className="text-2xl sm:text-3xl font-bold text-white">50K+</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-white">
+                                  <CountUp
+                                    from={0}
+                                    to={50000}
+                                    separator=","
+                                    direction="up"
+                                    duration={1}
+                                    className="count-up-text"
+                                  />+
+                  </span>
                 </div>
                 <p className="text-white/80 text-sm">Active Students</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
                   <TrendingUp className="w-5 h-5 text-yellow-300 mr-2" />
-                  <span className="text-2xl sm:text-3xl font-bold text-white">95%</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-white">
+                    <CountUp
+                      from={0}
+                      to={95}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />%
+                  </span>
                 </div>
                 <p className="text-white/80 text-sm">Match Accuracy</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-2">
                   <Sparkles className="w-5 h-5 text-yellow-300 mr-2" />
-                  <span className="text-2xl sm:text-3xl font-bold text-white">2K+</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-white">
+                    <CountUp
+                      from={0}
+                      to={2000}
+                      separator=","
+                      direction="up"
+                      duration={1}
+                      className="count-up-text"
+                    />+
+                  </span>
                 </div>
                 <p className="text-white/80 text-sm">Partner Companies</p>
               </div>
