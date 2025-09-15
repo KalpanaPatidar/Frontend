@@ -4,12 +4,14 @@ import { CoursesSection } from "@/components/CoursesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { PartnersSection } from "@/components/PartnersSection";
 import { UserChoicesSection } from "@/components/UserChoicesSection";
+import PersonalizedSection from "@/components/PersonalizedSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
       <UserChoicesSection />
+      <PersonalizedSection />
       <InternshipDashboard />
       <CoursesSection />
       <TestimonialsSection />
