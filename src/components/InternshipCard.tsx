@@ -3,21 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { MapPin, Clock, DollarSign, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import { Internship } from "./types";
 
 interface InternshipCardProps {
-  internship: {
-    id: number;
-    title: string;
-    company: string;
-    location: string;
-    skillsMatch: number;
-    duration: string;
-    stipend: string;
-    description: string;
-    tags: string[];
-    deadline: string;
-  };
+  internship: Internship;
   index: number;
+  onApply?: (internshipId: string | number) => void;
 }
 
 export function InternshipCard({ internship, index }: InternshipCardProps) {
@@ -65,17 +56,17 @@ export function InternshipCard({ internship, index }: InternshipCardProps) {
               <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
               <span>{internship.location}</span>
             </div>
-            
+
             <div className="flex items-center text-sm text-muted-foreground">
               <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
               <span>{internship.duration}</span>
             </div>
-            
+
             <div className="flex items-center text-sm text-muted-foreground">
               <DollarSign className="w-4 h-4 mr-2 flex-shrink-0" />
               <span className="font-semibold text-foreground">{internship.stipend}</span>
             </div>
-            
+
             <div className="flex items-center text-sm text-muted-foreground">
               <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
               <span>Apply by {new Date(internship.deadline).toLocaleDateString()}</span>
@@ -83,10 +74,10 @@ export function InternshipCard({ internship, index }: InternshipCardProps) {
           </div>
 
           <div className="flex flex-wrap gap-2 mt-4">
-            {internship.tags.map((tag) => (
-              <Badge key={tag} variant="secondary" className="text-xs bg-primary/10 text-primary hover:bg-primary/20 transition-smooth">
+            {internship.tags?.map((tag, index) => (
+              <span key={index} className="tag">
                 {tag}
-              </Badge>
+              </span>
             ))}
           </div>
         </CardContent>

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "./ThemeToggle";
-import { 
-  Search, 
-  Menu, 
-  X, 
-  User, 
+import {
+  Search,
+  Menu,
+  X,
+  User,
   BrainCircuit,
   Home,
   Briefcase,
@@ -15,12 +15,17 @@ import {
   Users
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  useNavigate
+} from "react-router-dom";
+
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const navItems = [
-    { label: "Home", href: "#home", icon: Home },
+    { label: "Home", href: "/", icon: Home },
     { label: "Internships", href: "#internships", icon: Briefcase },
     { label: "Courses", href: "#courses", icon: BookOpen },
     { label: "Testimonials", href: "#testimonials", icon: MessageSquare },
@@ -64,11 +69,19 @@ export function Header() {
           <div className="flex items-center space-x-4">
             {/* Search Bar - Hidden on mobile */}
             <div className="hidden md:flex items-center relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <Input
-                placeholder="Search internships..."
-                className="pl-10 pr-4 w-64 bg-muted/30 border-border/60 focus:border-primary/60 transition-smooth"
-              />
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  navigate("/recommendation")
+                }}
+                className="hidden md:flex items-center relative"
+              >
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  placeholder="Search internships..."
+                  className="pl-10 pr-4 w-64 bg-muted/30 border-border/60 focus:border-primary/60 transition-smooth"
+                />
+              </form>
             </div>
 
             {/* Theme Toggle */}
