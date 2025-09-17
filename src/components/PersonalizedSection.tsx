@@ -13,7 +13,7 @@ const PersonalizedSection = () => {
             <section id="internships" className="py-20 px-6">
                 <div className="container mx-auto">
                     <div className="text-center mb-16 animate-slide-up">
-                        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+                        <h2 className="text-4xl md:text-5xl font-bold text-hero-gradient mb-6">
                             Personalized Recommendations
                         </h2>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ const PersonalizedSection = () => {
                                 </p>
                                 <Button className="bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 text-white w-full">
                                     <Sparkles className="w-4 h-4 mr-2" />
-                                    Get Started Free
+                                    Take a Quiz
                                 </Button>
                             </div>
                         </div>

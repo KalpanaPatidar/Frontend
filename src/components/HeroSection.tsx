@@ -71,7 +71,7 @@ export function HeroSection() {
         Find Your Perfect
         <br />
         <span className="bg-gradient-to-r from-yellow-300 to-yellow-100 bg-clip-text text-transparent">
-          Internship Match
+          Internship
         </span>
       </motion.h1>
 
@@ -123,7 +123,7 @@ export function HeroSection() {
               <CountUp from={0} to={50000} separator="," duration={1} />+
             </span>
           </div>
-          <p className="text-hero-gradient/80 text-sm">Active Students</p>
+          <p className="text-white text-sm">Active Students</p>
         </div>
 
         <div className="text-center">
@@ -133,7 +133,7 @@ export function HeroSection() {
               <CountUp from={0} to={95} separator="," duration={1} />%
             </span>
           </div>
-          <p className="text-hero-gradient/80 text-sm">Match Accuracy</p>
+          <p className="text-white text-sm">Match Accuracy</p>
         </div>
 
         <div className="text-center">
@@ -143,7 +143,7 @@ export function HeroSection() {
               <CountUp from={0} to={2000} separator="," duration={1} />+
             </span>
           </div>
-          <p className="text-hero-gradient/80 text-sm">Partner Companies</p>
+          <p className="text-white text-sm">Partner Companies</p>
         </div>
       </motion.div>
     </motion.div>

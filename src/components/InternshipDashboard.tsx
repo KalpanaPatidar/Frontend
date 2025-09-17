@@ -51,7 +51,7 @@ export function InternshipDashboard() {
           </div>
           
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
-            Your Personalized Internship Matches
+            Popular Internships
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Our AI analyzes your profile and preferences to find the most suitable internship opportunities
