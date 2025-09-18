@@ -71,30 +71,6 @@ export function CoursesSection() {
               Trending courses for you
             </span>
           </div>
-
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={scrollLeft}
-              disabled={currentIndex === 0}
-              className="transition-smooth"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <span className="text-sm text-muted-foreground px-3">
-              {currentIndex + 1} / {courses.length}
-            </span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={scrollRight}
-              disabled={currentIndex === courses.length - 1}
-              className="transition-smooth"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
         </motion.div>
 
         {/* Course Cards */}
