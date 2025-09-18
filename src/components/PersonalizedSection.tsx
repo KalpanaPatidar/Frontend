@@ -67,7 +67,7 @@ const PersonalizedSection = () => {
                                 </p>
                                 <Button className="bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary/90 hover:to-brand-secondary/90 text-white w-full">
                                     <Sparkles className="w-4 h-4 mr-2" />
-                                    Take a Quiz
+                                    <a href="https://ai-quiz-9kjw.onrender.com/" target="_blank" rel="noopener noreferrer">Take a Quiz</a>
                                 </Button>
                             </div>
                         </div>
