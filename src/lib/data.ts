@@ -157,20 +157,19 @@ export const testimonials = [
 ];
 
 export const partners = [
-  { id: 1, name: "TCS", logo: "tcs-logo.png" },
-  { id: 2, name: "Infosys", logo: "infosys-logo.png" },
-  { id: 3, name: "Wipro", logo: "wipro-logo.png" },
-  { id: 4, name: "HCL", logo: "hcl-logo.png" },
-  { id: 5, name: "Tech Mahindra", logo: "techm-logo.png" },
-  { id: 6, name: "Cognizant", logo: "cognizant-logo.png" },
-  { id: 7, name: "Accenture", logo: "accenture-logo.png" },
-  { id: 8, name: "IBM", logo: "ibm-logo.png" },
-  { id: 9, name: "Microsoft", logo: "microsoft-logo.png" },
-  { id: 10, name: "Google", logo: "google-logo.png" },
-  { id: 11, name: "Amazon", logo: "amazon-logo.png" },
-  { id: 12, name: "Flipkart", logo: "flipkart-logo.png" }
+    { id: 1, name: "TCS", logo: "tcs-logo.png", url: "https://www.tcs.com/who-we-are" },
+  { id: 2, name: "Infosys", logo: "infosys-logo.png", url: "https://www.infosys.com/about.html" },
+  { id: 3, name: "Wipro", logo: "wipro-logo.png", url:"https://www.wipro.com/about-us/" },
+  { id: 4, name: "HCL", logo: "hcl-logo.png", url:"https://www.hcltech.com/about-us" },
+  { id: 5, name: "Tech Mahindra", logo: "techm-logo.png", url:"https://www.techmahindra.com/about-us/" },
+  { id: 6, name: "Cognizant", logo: "cognizant-logo.png", url:"https://www.cognizant.com/us/en/about-cognizant" },
+  { id: 7, name: "Accenture", logo: "accenture-logo.png", url:"https://www.accenture.com/in-en/about/company-index" },
+  { id: 8, name: "IBM", logo: "ibm-logo.png", url:"https://www.ibm.com/in-en/about" },
+  { id: 9, name: "Microsoft", logo: "microsoft-logo.png", url:"https://www.microsoft.com/en-in/about" },
+  { id: 10, name: "Google", logo: "google-logo.png", url:"https://about.google/" },
+  { id: 11, name: "Amazon", logo: "amazon-logo.png", url:"https://www.aboutamazon.com/about-us" },
+  { id: 12, name: "Flipkart", logo: "flipkart-logo.png", url:"https://corporate.flipkart.net/about-us" }
 ];
-
 export const userChoices = [
   {
     id: 1,
