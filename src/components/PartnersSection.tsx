@@ -51,7 +51,7 @@ export function PartnersSection() {
                     <Building2 className="w-4 h-4 text-white" />
                   </div>
                   <span className="ml-2 font-semibold text-sm text-foreground group-hover:text-primary transition-smooth">
-                    {partner.name}
+                    <a href={partner.url} target="_blank" rel="noopener noreferrer">{partner.name}</a>
                   </span>
                 </div>
               </div>
