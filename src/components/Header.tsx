@@ -43,7 +43,7 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-display font-bold text-foreground">
-                AI Career Navigator
+                InternSetu
               </h1>
               <p className="text-xs text-muted-foreground font-medium">
                 PM Internship Scheme
