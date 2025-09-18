@@ -182,15 +182,6 @@ export const userChoices = [
     route: "/courses"
   },
   {
-    id: 2,
-    title: "I want to Explore",
-    subtitle: "Discover new opportunities",
-    description: "Find internships across different industries and domains",
-    icon: "Compass",
-    color: "bg-green-500",
-    route: "/explore"
-  },
-  {
     id: 3,
     title: "I want an Internship",
     subtitle: "Get AI-powered recommendations",
