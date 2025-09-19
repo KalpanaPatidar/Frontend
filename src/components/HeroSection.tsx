@@ -93,7 +93,7 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="flex w-[90%] md:w-full md:flex-row gap-2 flex-col items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12"
       >
-      <a href="#internships">
+      <a href="https://frontend123-zeta.vercel.app/">
   <Button
     size="lg"
     className="bg-white text-primary hover:bg-white/70 transition-all duration-300 shadow-glow font-semibold text-lg px-6 sm:px-8 py-4 rounded-xl group"
