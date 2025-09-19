@@ -106,9 +106,15 @@ export function CoursesSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button size="lg" variant="outline" className="bg-background hover:bg-muted transition-smooth">
-            Browse All Courses
-          </Button>
+         <Button
+  size="lg"
+  variant="outline"
+  className="bg-background hover:bg-muted transition-smooth"
+  onClick={() => window.open("https://onlinecourses.nptel.ac.in/", "_blank")}
+>
+  Browse All Courses
+</Button>
+
         </motion.div>
       </div>
     </section>

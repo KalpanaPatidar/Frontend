@@ -37,7 +37,7 @@ export function InternshipDashboard() {
 
   return (
     <section id="internships" className="py-20 bg-gradient-secondary">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8" id="#internship1">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,9 +107,15 @@ export function InternshipDashboard() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button size="lg" variant="outline" className="bg-background hover:bg-muted transition-smooth">
-            View All Recommendations
-          </Button>
+         <Button
+  size="lg"
+  variant="outline"
+  className="bg-background hover:bg-muted transition-smooth"
+  onClick={() => window.open("https://pminternship.mca.gov.in/login/", "_blank")}
+>
+  View All Recommendations
+</Button>
+
         </motion.div>
       </div>
     </section>

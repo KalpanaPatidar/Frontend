@@ -106,9 +106,14 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button size="lg" className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-glow">
-            Join Our Success Stories
-          </Button>
+         <Button
+  size="lg"
+  className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-glow"
+  onClick={() => window.open("https://pminternship.mca.gov.in/login/", "_blank")}
+>
+  Join Our Success Stories
+</Button>
+
         </motion.div>
       </div>
     </section>

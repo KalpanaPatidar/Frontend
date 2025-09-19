@@ -2,27 +2,30 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "./ThemeToggle";
+import { AuthModal } from "./AuthModal";
+import { InternshipRegisterModal } from "./InternshipRegisterModal";
+
 import {
   Search,
   Menu,
   X,
-  User,
   BrainCircuit,
   Home,
   Briefcase,
   BookOpen,
   MessageSquare,
-  Users
+  Users,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  useNavigate
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate()
+  const [isAuthOpen, setIsAuthOpen] = useState(true); // Signup opens first
+  const [isInternshipOpen, setIsInternshipOpen] = useState(false);
+  const [loggedUser, setLoggedUser] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: "Home", href: "/", icon: Home },
@@ -31,6 +34,11 @@ export function Header() {
     { label: "Testimonials", href: "#testimonials", icon: MessageSquare },
     { label: "Partners", href: "#partners", icon: Users },
   ];
+
+  const handleLoginSuccess = (userId: string) => {
+    setLoggedUser(userId);
+    setIsAuthOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40 shadow-soft">
@@ -42,12 +50,8 @@ export function Header() {
               <BrainCircuit className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-display font-bold text-foreground">
-                InternSetu
-              </h1>
-              <p className="text-xs text-muted-foreground font-medium">
-                PM Internship Scheme
-              </p>
+              <h1 className="text-xl font-display font-bold text-foreground">InternSetu</h1>
+              <p className="text-xs text-muted-foreground font-medium">PM Internship Scheme</p>
             </div>
           </div>
 
@@ -65,39 +69,35 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Search & Actions */}
+          {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Search Bar - Hidden on mobile */}
-            <div className="hidden md:flex items-center relative">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  navigate("/recommendation")
-                }}
-                className="hidden md:flex items-center relative"
-              >
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                <Input
-                  placeholder="Search internships..."
-                  className="pl-10 pr-4 w-64 bg-muted/30 border-border/60 focus:border-primary/60 transition-smooth"
-                />
-              </form>
-            </div>
-
-            {/* Theme Toggle */}
             <ThemeToggle />
 
-            {/* Auth Buttons - Hidden on small screens */}
             <div className="hidden sm:flex items-center space-x-2">
-              <Button variant="ghost" size="sm" className="transition-smooth hover:bg-accent/60">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="transition-smooth hover:bg-accent/60"
+                onClick={() => {
+                  if (!loggedUser) setIsAuthOpen(true);
+                  else alert("Already logged in");
+                }}
+              >
                 Login
               </Button>
-              <Button size="sm" className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft">
+              <Button
+                size="sm"
+                className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft"
+                onClick={() => {
+                  if (!loggedUser) alert("Please login first");
+                  else setIsInternshipOpen(true);
+                }}
+              >
                 Register
               </Button>
             </div>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu */}
             <Button
               variant="ghost"
               size="sm"
@@ -121,7 +121,6 @@ export function Header() {
             className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border/40"
           >
             <div className="container mx-auto px-4 py-4">
-              {/* Mobile Search */}
               <div className="mb-4 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
@@ -130,7 +129,6 @@ export function Header() {
                 />
               </div>
 
-              {/* Mobile Navigation */}
               <div className="space-y-2 mb-4">
                 {navItems.map((item) => (
                   <a
@@ -145,12 +143,26 @@ export function Header() {
                 ))}
               </div>
 
-              {/* Mobile Auth Buttons */}
               <div className="flex space-x-2 pt-2 border-t border-border/40">
-                <Button variant="ghost" size="sm" className="flex-1">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => {
+                    if (!loggedUser) setIsAuthOpen(true);
+                    else alert("Already logged in!");
+                  }}
+                >
                   Login
                 </Button>
-                <Button size="sm" className="flex-1 bg-hero-gradient hover:opacity-90 transition-smooth">
+                <Button
+                  size="sm"
+                  className="flex-1 bg-hero-gradient hover:opacity-90 transition-smooth"
+                  onClick={() => {
+                    if (!loggedUser) alert("Please login first");
+                    else setIsInternshipOpen(true);
+                  }}
+                >
                   Register
                 </Button>
               </div>
@@ -158,6 +170,10 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Modals */}
+      <AuthModal open={isAuthOpen} onClose={() => setIsAuthOpen(false)} setLoggedUser={handleLoginSuccess} />
+      <InternshipRegisterModal open={isInternshipOpen} onClose={() => setIsInternshipOpen(false)} userId={loggedUser} />
     </header>
   );
 }

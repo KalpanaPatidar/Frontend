@@ -93,20 +93,26 @@ export function HeroSection() {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="flex w-[90%] md:w-full md:flex-row gap-2 flex-col items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12"
       >
-        <Button
-          size="lg"
-          className="bg-white text-primary hover:bg-white/70 transition-all duration-300 shadow-glow font-semibold text-lg px-6 sm:px-8 py-4 rounded-xl group"
-        >
-          Find My Internship
-          <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="lg"
-          className="text-white border-white/30 hover:bg-white/40 transition-smooth font-semibold text-lg px-6 sm:px-8 py-4 rounded-xl"
-        >
-          Test Your Skills
-        </Button>
+      <a href="#internships">
+  <Button
+    size="lg"
+    className="bg-white text-primary hover:bg-white/70 transition-all duration-300 shadow-glow font-semibold text-lg px-6 sm:px-8 py-4 rounded-xl group"
+  >
+    Find My Internship
+    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+  </Button>
+</a>
+
+      <a href="https://ai-quiz-9kjw.onrender.com/" target="_blank" rel="noopener noreferrer">
+  <Button
+    variant="ghost"
+    size="lg"
+    className="text-white border-white/30 hover:bg-white/40 transition-smooth font-semibold text-lg px-6 sm:px-8 py-4 rounded-xl"
+  >
+    Test Your Skills
+  </Button>
+</a>
+
       </motion.div>
 
       {/* Stats */}

@@ -86,11 +86,15 @@ export function CourseCard({ course, index }: CourseCardProps) {
           </div>
         </CardContent>
 
-        <CardFooter className="pt-0">
-          <Button className="w-full bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft">
-            Enroll Now
-          </Button>
-        </CardFooter>
+       <CardFooter className="pt-0">
+  <Button
+    className="w-full bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft"
+    onClick={() => window.open("https://onlinecourses.nptel.ac.in/", "_blank")}
+  >
+    Enroll Now
+  </Button>
+</CardFooter>
+
       </Card>
     </motion.div>
   );

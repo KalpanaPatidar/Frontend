@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { 
+import {
   BrainCircuit,
   Mail,
   Phone,
@@ -10,11 +11,38 @@ import {
   Instagram,
   Linkedin,
   Youtube,
-  ExternalLink
+  ExternalLink,
+  HelpCircle
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  // Subscription handler
+  const handleSubscribe = async () => {
+    if (!email) return alert("Please enter your email");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSubscribed(true);
+      } else {
+        alert(data.error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error. Please try again.");
+    }
+  };
+
   const quickLinks = [
     { label: "About PM Scheme", href: "#about" },
     { label: "How It Works", href: "#how-it-works" },
@@ -28,7 +56,7 @@ export function Footer() {
     { label: "Skill Assessment", href: "#assessment" },
     { label: "Interview Prep", href: "#interview" },
     { label: "Resume Builder", href: "#resume" },
-    { label: "NPTEL Courses", href: "#courses" },
+    { label: "NPTEL Courses", href: "https://onlinecourses.nptel.ac.in/", external: true },
   ];
 
   const legalLinks = [
@@ -39,15 +67,15 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   ];
 
   return (
-    <footer className="bg-muted/20 border-t border-border/60">
+    <footer className="bg-muted/20 border-t border-border/60" id="footer">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Section */}
         <motion.div
@@ -65,14 +93,27 @@ export function Footer() {
               Get the latest internship recommendations and career guidance delivered to your inbox
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 bg-background border-border/60"
-              />
-              <Button className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft">
-                Subscribe
-              </Button>
+              {!subscribed ? (
+                <>
+                  <Input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 bg-background border-border/60"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Button
+                    className="bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft"
+                    onClick={handleSubscribe}
+                  >
+                    Subscribe
+                  </Button>
+                </>
+              ) : (
+                <p className="text-green-500 font-semibold text-center w-full">
+                  Subscribed! ✅
+                </p>
+              )}
             </div>
           </div>
         </motion.div>
@@ -95,12 +136,10 @@ export function Footer() {
                   </p>
                 </div>
               </div>
-              
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Empowering India's youth through AI-driven internship recommendations 
                 and skill development under the Prime Minister's Internship Scheme.
               </p>
-
               {/* Contact Info */}
               <div className="space-y-3">
                 <div className="flex items-center text-sm text-muted-foreground">
@@ -143,6 +182,8 @@ export function Footer() {
                   <li key={resource.label}>
                     <a
                       href={resource.href}
+                      target={resource.external ? "_blank" : "_self"}
+                      rel={resource.external ? "noopener noreferrer" : ""}
                       className="text-sm text-muted-foreground hover:text-primary transition-smooth"
                     >
                       {resource.label}
@@ -176,6 +217,8 @@ export function Footer() {
                     <a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-smooth group"
                       aria-label={social.label}
                     >
@@ -187,42 +230,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Government Attribution */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="py-8 border-t border-border/40"
-        >
-          <div className="bg-gradient-to-r from-orange-500/10 via-white/10 to-green-500/10 rounded-xl p-6 border border-border/40">
-            <div className="text-center">
-              <div className="flex items-center justify-center space-x-2 mb-3">
-                <div className="w-6 h-6 bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full"></div>
-                <span className="font-semibold text-foreground">Government of India Initiative</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-4">
-                This platform is developed as part of the Prime Minister's Internship Scheme to empower 
-                India's youth with AI-driven career opportunities and skill development.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-muted-foreground">
-                <a href="#" className="hover:text-primary transition-smooth flex items-center">
-                  Ministry of Skill Development
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-                <a href="#" className="hover:text-primary transition-smooth flex items-center">
-                  Digital India
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-                <a href="#" className="hover:text-primary transition-smooth flex items-center">
-                  Make in India
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-border/40">

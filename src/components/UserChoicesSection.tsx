@@ -38,7 +38,23 @@ export function UserChoicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {userChoices.map((choice, index) => {
             const IconComponent = iconMap[choice.icon as keyof typeof iconMap];
-            
+
+            // Click handler for "Get Started"
+           const handleClick = () => {
+  if (choice.id === 1) {
+    // External link opens in new tab
+    window.open("https://onlinecourses.nptel.ac.in/", "_blank");
+  } else if (choice.id === 3) {
+    // Internal section navigation within the same page
+    const element = document.getElementById("internships");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  } else if (choice.id === 4) {
+    // Internal section navigation to footer
+    const element = document.getElementById("footer");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
             return (
               <motion.div
                 key={choice.id}
@@ -48,25 +64,29 @@ export function UserChoicesSection() {
                 viewport={{ once: true }}
                 className="h-full"
               >
-                <Card className="h-full bg-gradient-card shadow-card hover:shadow-glow transition-all duration-300 border border-border/60 group cursor-pointer">
+                <Card className="h-full bg-gradient-card shadow-card hover:shadow-glow transition-all duration-300 border border-border/60 group">
                   <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                    <div className={`w-16 h-16 bg-hero-gradient rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-soft`}>
+                    <div className="w-16 h-16 bg-hero-gradient rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-soft">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    
+
                     <h3 className="font-display font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-smooth">
                       {choice.title}
                     </h3>
-                    
+
                     <p className="text-sm font-medium text-muted-foreground mb-3">
                       {choice.subtitle}
                     </p>
-                    
+
                     <p className="text-xs text-muted-foreground mb-6 flex-grow">
                       {choice.description}
                     </p>
-                    
-                    <div className="flex items-center text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300">
+
+                    {/* Only this div is clickable */}
+                    <div
+                      onClick={handleClick}
+                      className="flex items-center text-primary text-sm font-semibold group-hover:translate-x-1 transition-transform duration-300 cursor-pointer"
+                    >
                       <span>Get Started</span>
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
@@ -85,10 +105,16 @@ export function UserChoicesSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-muted-foreground mb-4">
+          <p
+            onClick={() => window.open("https://ai-quiz-9kjw.onrender.com/", "_blank")}
+            className="text-muted-foreground mb-4 cursor-pointer hover:text-primary transition-smooth"
+          >
             Still unsure? Take our quick assessment to find your perfect path
           </p>
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-6 py-3 cursor-pointer hover:bg-primary/20 transition-smooth">
+          <div
+            onClick={() => window.open("https://ai-quiz-9kjw.onrender.com/", "_blank")}
+            className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-6 py-3 cursor-pointer hover:bg-primary/20 transition-smooth"
+          >
             <HelpCircle className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">Start Career Assessment</span>
             <ArrowRight className="w-4 h-4 text-primary" />

@@ -82,11 +82,15 @@ export function InternshipCard({ internship, index }: InternshipCardProps) {
           </div>
         </CardContent>
 
-        <CardFooter className="pt-0">
-          <Button className="w-full bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft">
-            Apply Now
-          </Button>
-        </CardFooter>
+     <CardFooter className="pt-0">
+  <Button
+    className="w-full bg-hero-gradient hover:opacity-90 transition-smooth shadow-soft"
+    onClick={() => window.open("https://pminternship.mca.gov.in/login/", "_blank")}
+  >
+    Apply Now
+  </Button>
+</CardFooter>
+
       </Card>
     </motion.div>
   );
