@@ -7,7 +7,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Recommendations from "./pages/Recommendations";
+import InternshipListings from "./pages/InternshipListings";
 
 const queryClient = new QueryClient();
 
@@ -22,7 +22,7 @@ const App = () => (
           <main>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/recommendation" element={<Recommendations />} />
+              <Route path="/internships" element={<InternshipListings />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

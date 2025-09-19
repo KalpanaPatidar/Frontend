@@ -103,7 +103,7 @@ export function HeroSection() {
   </Button>
 </a>
 
-      <a href="https://ai-quiz-9kjw.onrender.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://recommendation-qr8z.onrender.com" target="_blank" rel="noopener noreferrer">
   <Button
     variant="ghost"
     size="lg"

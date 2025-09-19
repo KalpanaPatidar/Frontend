@@ -69,8 +69,24 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Actions */}
+          {/* Search & Actions */}
           <div className="flex items-center space-x-4">
+            {/* Search Bar - Hidden on mobile */}
+            <div className="hidden md:flex items-center relative">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  navigate("/internships")
+                }}
+                className="hidden md:flex items-center relative"
+              >
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  placeholder="Search internships..."
+                  className="pl-10 pr-4 w-64 bg-muted/30 border-border/60 focus:border-primary/60 transition-smooth"
+                />
+              </form>
+            </div>
             <ThemeToggle />
 
             <div className="hidden sm:flex items-center space-x-2">
